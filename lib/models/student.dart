@@ -5,7 +5,7 @@ class Student{
   String firstName;
    String lastName;
   int grade;
-  String status;
+  String _status;
 
   Student(String firstName,String lastName,int grade){
     this.firstName=firstName;
@@ -17,5 +17,28 @@ class Student{
     this.firstName=firstName;
     this.lastName=lastName;
     this.grade=grade;
+  }
+  String get status{
+    String message="";
+    if(this.grade>=50){
+      message="Geçti";
+    }else if(this.grade>40){
+      message="Bütünlemeye kaldı";
+    }else
+      {
+        message="Kaldı";
+      }
+    return message;
+  }
+  IconData GetStatatusIcon(){
+    if(this.grade>50)
+      {
+        return Icons.done;
+      }else if(this.grade>40){
+      return Icons.album;
+    }else
+      {
+        return Icons.clear;
+      }
   }
 }
